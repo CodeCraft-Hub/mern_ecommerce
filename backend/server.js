@@ -13,8 +13,9 @@ dotenv.config();
 app.use(cors())
 // conncetion to mongodb database
 connectDB();
-
+// for routes
 app.use("/api",productRoutes);
+// for middleware
 app.use(errorHandler);
 
 
