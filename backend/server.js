@@ -6,7 +6,13 @@ const dotenv = require("dotenv")
 const PORT = 8000;
 const connectDB = require("./config/config");
 const productRoutes = require('./routes/productsRoutes')
-const {errorHandler} = require("./middlewares/errorMiddleware")
+const {errorHandler} = require("./middlewares/errorMiddleware");
+const userRoute = require('./routes/UsersRoute')
+const bodyparser = require('body-parser');
+
+/*assuming an express app is declared here*/
+app.use(bodyparser.json());
+app.use(bodyparser.urlencoded({extended: true}));
 
 // dotenv config
 dotenv.config();
@@ -15,8 +21,14 @@ app.use(cors())
 connectDB();
 // for routes
 app.use("/api",productRoutes);
+app.use("/api/users",userRoute);
+
 // for middleware
 app.use(errorHandler);
+// middleware bodyparser
+app.use(express.json());
+
+
 
 
 app.get('/',(req,res)=>{
