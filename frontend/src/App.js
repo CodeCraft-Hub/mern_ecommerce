@@ -5,7 +5,11 @@ import Footer from "./components/footer";
 import Header from "./components/Header";
 import HomeScreen from "./screens/HomeScreen";
 import ProductDetails from "./screens/ProductDetails";
+import RegisterScreen from "./screens/RegisterScreen";
+import ProfileScreen from "./screens/ProfileScreen";
 import { CartScreen } from "./screens/CartScreen";
+import ShippingScreen from "./screens/ShippingScreen";
+
 
 
 import LoginScreen from "./screens/LoginScreen";
@@ -21,8 +25,12 @@ function App() {
           <Routes>
             <Route path="/" Component={HomeScreen} exact />
             <Route path="/login" Component={LoginScreen} />
+            <Route path="/profile" Component={ProfileScreen} />
+            <Route path="/register" Component={RegisterScreen} />
             <Route path="/product/:id" Component={ProductDetails} />
             <Route path="/cart/:id?" Component={CartScreen} />
+            <Route path="/shipping" Component={ShippingScreen} />
+
 
 
           </Routes>

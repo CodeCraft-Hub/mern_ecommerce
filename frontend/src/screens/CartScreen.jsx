@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { Row, Col, Form, Button, Card, Image, ListGroup, ListGroupItem } from 'react-bootstrap'
 import { addToCart, removeFromCart } from '../actions/cartAction'
-import { useLocation, useParams, Link } from 'react-router-dom';
+import { useLocation, useParams, Link, useNavigate } from 'react-router-dom';
 import Message from "../components/shared/Message";
 
 export const CartScreen = () => {
@@ -10,6 +10,8 @@ export const CartScreen = () => {
   const location = useLocation();
   const qty = location.search ? Number(location.search.split("=")[1]) : 1;
   const dispatch = useDispatch();
+
+  const history = useNavigate()
 
   useEffect(() => {
     if (id) {
@@ -22,6 +24,10 @@ export const CartScreen = () => {
 
   const removeFromCartHandler = (id) => {
     dispatch(removeFromCart(id))
+  }
+
+  const checkout = ()=>{
+    history('/shipping')
   }
 
   return (
@@ -100,7 +106,7 @@ export const CartScreen = () => {
                 type="button"
                 className="btn-block"
                 disabled={cartItems.length === 0}
-
+                onClick={checkout}
               >
                 Proceed to checkOut
               </Button>
