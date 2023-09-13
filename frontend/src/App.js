@@ -9,7 +9,8 @@ import RegisterScreen from "./screens/RegisterScreen";
 import ProfileScreen from "./screens/ProfileScreen";
 import { CartScreen } from "./screens/CartScreen";
 import ShippingScreen from "./screens/ShippingScreen";
-
+import PaymentScreen from "./screens/PaymentScreen";
+import PlaceOrderScreen from "./screens/PlaceOrderScreen";
 
 
 import LoginScreen from "./screens/LoginScreen";
@@ -24,13 +25,14 @@ function App() {
           {/* <h1>Ecommerce App</h1> */}
           <Routes>
             <Route path="/" Component={HomeScreen} exact />
-            <Route path="/login" Component={LoginScreen} />
-            <Route path="/profile" Component={ProfileScreen} />
-            <Route path="/register" Component={RegisterScreen} />
-            <Route path="/product/:id" Component={ProductDetails} />
-            <Route path="/cart/:id?" Component={CartScreen} />
-            <Route path="/shipping" Component={ShippingScreen} />
-
+            <Route path="/login" Component={LoginScreen} exact />
+            <Route path="/profile" Component={ProfileScreen} exact />
+            <Route path="/register" Component={RegisterScreen} exact />
+            <Route path="/product/:id" Component={ProductDetails} exact/>
+            <Route path="/cart/:id?" Component={CartScreen} exact />
+            <Route path="/shipping" Component={ShippingScreen} exact />
+            <Route path="/payment" Component={PaymentScreen} exact />
+            <Route path="/placeorder" Component={PlaceOrderScreen} exact />
 
 
           </Routes>

@@ -7,6 +7,7 @@ import {
 } from "./reducers/productReducer";
 import { cartReducer } from "./reducers/cartReducer";
 import { userLoginReducer ,userRegisterReducer,userDetailsReducer,userUpdateProfileReducer} from "./reducers/userReducer";
+import { orderCreateReducer } from "./reducers/orderReducer";
 
 const shippingAddressFromStorage = localStorage.getItem('shippingAddress')
 ? JSON.parse(localStorage.getItem('shippingAddress'))
@@ -27,7 +28,8 @@ const reducer = combineReducers({
   userLogin: userLoginReducer,
   userRegister:userRegisterReducer,
   userDetails:userDetailsReducer,
-  userUpdateProfile:userUpdateProfileReducer
+  userUpdateProfile:userUpdateProfileReducer,
+  orderCreate:orderCreateReducer
 
 });
 const initialState = {

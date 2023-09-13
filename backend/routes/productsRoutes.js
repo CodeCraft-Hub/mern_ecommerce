@@ -7,6 +7,7 @@ const {getProducts,getProduct} = require("../controllers/productsController")
 router.route('/products').get(getProducts)
 
 
+
 // get router for single products
 router.route('/products/:id').get(getProduct)
 

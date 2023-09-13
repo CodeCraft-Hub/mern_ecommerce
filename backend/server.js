@@ -9,6 +9,7 @@ const productRoutes = require('./routes/productsRoutes')
 const {errorHandler} = require("./middlewares/errorMiddleware");
 const userRoute = require('./routes/UsersRoute')
 const bodyparser = require('body-parser');
+const orderRoute = require('./routes/orderRoute')
 
 /*assuming an express app is declared here*/
 app.use(bodyparser.json());
@@ -22,6 +23,9 @@ connectDB();
 // for routes
 app.use("/api",productRoutes);
 app.use("/api/users",userRoute);
+app.use("/api/orders",orderRoute);
+
+
 
 // for middleware
 app.use(errorHandler);
